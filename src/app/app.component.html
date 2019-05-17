@@ -1,23 +1,38 @@
 <div class="container">
-  <div class="card"
-       style="width: 18rem;">
-    <div class="card-body">
 
-      <form [formGroup]="myForm"
-            novalidate>
+  <div class="some-code">
+
+    <h4>Some tasks interactions with NGRX</h4>
+
+    <form [formGroup]="myForm"
+          class="form-inline"
+          novalidate>
+      <div class="form-group mb-2">
+        <label for="staticEmail2"
+               class="sr-only">Task name</label>
         <input type="text"
                formControlName="task"
-               placeholder="Enter task name">
-        <button type="button"
-                class="btn btn-primary" (click)="addTask()">Primary</button>
-      </form>
+               class="form-control mb-2 mr-sm-2"
+               placeholder="Some task name here">
+      </div>
 
-      <ul *ngIf="items$ | async as items; else noItems">
-        <li *ngFor="let item of items"></li>
-      </ul>
+      <button type="button"
+              class="btn btn-primary mb-2"
+              (click)="addTask()">Primary</button>
+    </form>
 
+    <div class="card"
+         style="width: 38rem;">
+      <div class="card-body">
+        <ul class="list-group"
+            *ngIf="items$ | async as items; else noItems">
+          <li class="list-group-item"
+              *ngFor="let task of items.tasks">{{task.task}} [{{task.createdAt | date:'short'}}]</li>
+        </ul>
+      </div>
     </div>
   </div>
+
 </div>
 
 <ng-template #noItems>
