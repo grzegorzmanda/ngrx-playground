@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { mergeMap, switchMap, map, catchError, tap, mapTo } from 'rxjs/operators';
+import { mergeMap, map, catchError, tap } from 'rxjs/operators';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { SnackbarService } from 'ngx-snackbar';
